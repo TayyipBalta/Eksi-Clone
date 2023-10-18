@@ -1,0 +1,42 @@
+@font-face {font-family: font-eksi;src: url('./assets/font/eksi-font.ttf');}
+.eksi-nav{box-shadow: inset 0px -5px 0px 0px rgb(255, 255, 255);color:rgb(73, 73, 73);}
+.eksi-nav :hover {
+  box-shadow: inset 0px -5px 0px 0px rgb(129, 193, 75);
+  color: rgb(129, 193, 75);
+  transition: all 0.2s;
+}
+.eksi-search{border: 1px solid #81C14B;}
+.eksi-search-box{background-color:rgb(129, 193, 75); width: 33px; height: 35px; right: 5px;}
+
+.eksi-font{font-family: font-eksi;}
+
+.eksi-color{background-color:rgb(129, 193, 75);}
+
+.eksi-logo{color:rgb(129, 193, 75);}
+
+.eksi-stack{background-color:rgb(176, 190, 197);}
+
+.eksi-text{color:rgb(73, 73, 73);}
+
+.eksi-sukela-text{bottom:7px;}
+.eksi-share-text{bottom:17px;}
+
+.eksi-sukela{border-color:rgb(73, 73, 73); color:rgb(73, 73, 73); padding: 2px; height: 18px;}
+.eksi-sukela:hover{border-color:rgb(129, 193, 75); color:rgb(129, 193, 75); transition: all 150ms}
+
+.eksi-damla-text{border-color:rgb(73, 73, 73); color:rgb(73, 73, 73);}
+.eksi-damla-text:hover{border-color:rgb(129, 193, 75); color:rgb(129, 193, 75); transition: all 150ms}
+
+.eksi-dislike{border-color:rgb(73, 73, 73); color:rgb(73, 73, 73); padding: 2px; height: 18px;}
+.eksi-dislike:hover{border-color:rgb(255, 82, 34); color:rgb(255, 82, 34); transition: all 150ms}
+
+.eksi-damla{fill:none; stroke:rgb(73, 73, 73);}
+.eksi-damla:hover{fill: #81C14B; stroke:rgb(73, 73, 73);}
+.eksi-damla:active{fill: #81C14B; stroke: #81C14B;}
+
+.eksi-share{border-radius: 3px; border-color: rgb(73, 73, 73); color: rgb(73, 73 ,73); padding: 1px; height: 14px;}
+.eksi-share:hover{border-color:rgb(129, 193, 75); color:rgb(129, 193, 75); transition: all 150ms}
+
+.active{box-shadow: inset 0px -5px 0px 0px rgb(129, 193, 75);
+  color: rgb(129, 193, 75);
+  transition: all 0.2s;}
