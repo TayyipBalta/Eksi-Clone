@@ -6,7 +6,7 @@
   transition: all 0.2s;
 }
 .eksi-search{border: 1px solid #81C14B;}
-.eksi-search-box{background-color:rgb(129, 193, 75); width: 33px; height: 35px; right: 5px;}
+.eksi-search-box{background-color:rgb(129, 193, 75); width: 33px; height: 28px; right: 5px;}
 
 .eksi-font{font-family: font-eksi;}
 
@@ -30,13 +30,29 @@
 .eksi-dislike{border-color:rgb(73, 73, 73); color:rgb(73, 73, 73); padding: 2px; height: 18px;}
 .eksi-dislike:hover{border-color:rgb(255, 82, 34); color:rgb(255, 82, 34); transition: all 150ms}
 
-.eksi-damla{fill:none; stroke:rgb(73, 73, 73);}
+.eksi-damla{fill:none; stroke:rgb(73, 73, 73); stroke-linejoin:round; stroke-width:10;}
 .eksi-damla:hover{fill: #81C14B; stroke:rgb(73, 73, 73);}
 .eksi-damla:active{fill: #81C14B; stroke: #81C14B;}
 
 .eksi-share{border-radius: 3px; border-color: rgb(73, 73, 73); color: rgb(73, 73 ,73); padding: 1px; height: 14px;}
 .eksi-share:hover{border-color:rgb(129, 193, 75); color:rgb(129, 193, 75); transition: all 150ms}
 
-.active{box-shadow: inset 0px -5px 0px 0px rgb(129, 193, 75);
+:is(.eksi-nav) :is(.active){box-shadow: inset 0px -5px 0px 0px rgb(129, 193, 75);
   color: rgb(129, 193, 75);
-  transition: all 0.2s;}
+  transition: all 150ms;}
+.eksi-text:has(.active){color:#81C14B; transition: all 150ms}
+
+@media (max-width: 768px) {
+  .eksi-mesage{display: none;}
+}
+@media (max-width: 384px){
+  .eksi-search{width: 140px}
+}
+
+input[type="radio"][value="erkek"]:checked {
+  background-color: blue;
+}
+
+input[type="radio"]:checked + label span {
+  color: pink;
+}

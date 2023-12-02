@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         element: <Spor />
       },
       {
-        path: '/ilişkiler',
+        path: '/iliskiler',
         element: <RelationShip />
       },
       {
@@ -68,7 +68,7 @@ function Home() {
   )
 }
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  /* </React.StrictMode>, */
 )
