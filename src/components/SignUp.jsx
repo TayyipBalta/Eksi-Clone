@@ -10,6 +10,8 @@ const secretKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIs
 
 const supabase = createClient(supabaseUrl, secretKey);
 
+const defaultProfil = 'https://rpllnpgdbmsvfqxnybcp.supabase.co/storage/v1/object/public/images/default-profile-picture-light.svg';
+
 function SignUp(){
 
   const [gender, setGender] = useState('');
@@ -41,6 +43,16 @@ function SignUp(){
         const usersSign = Object.fromEntries(new FormData(e.target));
         console.log(usersSign);
 
+        debugger;
+        const defaultImageResponse = await fetch(defaultProfil);
+        const downloadImage = await defaultImageResponse.blob();
+
+        // const imageRename = usersSign.nickname + '.' + downloadImage.type.slice(6,9);
+        const imageRename = usersSign.nickname;
+        const fileImage = new File([downloadImage] , imageRename, { type: downloadImage.type});
+
+        console.log(fileImage);
+
         try{
 
             const { data , error } = await supabase
@@ -53,7 +65,8 @@ function SignUp(){
                         nickname: usersSign.nickname,
                         password: usersSign.password,
                         gender: usersSign.gender,
-                },
+                        avatar: imageRename,
+                    },
                 }
             })
 
@@ -76,8 +89,14 @@ function SignUp(){
                 email: usersSign.email,
                 password: usersSign.password,
                 gender: usersSign.gender,
+                avatar: imageRename,
             });
 
+            await supabase
+            .storage
+            .from('images')
+            .upload(imageRename , fileImage);
+            
             if(insertError){
                 alert('olmadıki :D' , insertError);
             }else{
@@ -88,38 +107,41 @@ function SignUp(){
         catch(error){
             alert('hop dedik');
         }
+
     }
     return(
     <>
         <div className="flex flex-col items-center">
             <h1 className='eksi-logo mb-2'>Kayıt Ol...</h1>
             <form onSubmit={addUsers} method="post" className='flex flex-col gap-5'>
-                <input type="text" name="nickname" placeholder='nickname' className='bg-slate-50 border-2 border-slate-200 py-1 px-3 rounded-lg' />
-                <input type="email" name="email" placeholder='e-mail' className='bg-slate-50 border-2 border-slate-200 py-1 px-3 rounded-lg' />
-                <input type="password" name="password" placeholder='Password' className='bg-slate-50 border-2 border-slate-200 py-1 px-3 rounded-lg' />
+                <input required type="text" name="nickname" placeholder='nickname' className='bg-slate-50 border-2 border-slate-200 py-1 px-3 rounded-lg' />
+                <input required type="email" name="email" placeholder='e-mail' className='bg-slate-50 border-2 border-slate-200 py-1 px-3 rounded-lg' />
+                <input required type="password" name="password" placeholder='Password' className='bg-slate-50 border-2 border-slate-200 py-1 px-3 rounded-lg' />
                     
                     <div className="flex max-lg:flex-col gap-4">
 
                         <label>
                             <input
-                            className='mx-2'
+                            className='mx-2 accent-blue-400'
                             type="radio"
                             value="male"
                             name='gender'
                             checked={gender === 'male'}
                             onChange={handleGenderChange}
+                            required
                             />
                             Erkek
                         </label>
 
                         <label>
                             <input
-                            className='mx-2'
+                            className='mx-2 accent-pink-400'
                             type="radio"
                             value="female"
                             name='gender'
                             checked={gender === 'female'}
                             onChange={handleGenderChange}
+                            required
                             />
                             Kadın
                         </label>
@@ -132,8 +154,9 @@ function SignUp(){
                             name='gender'
                             checked={gender === 'other'}
                             onChange={handleGenderChange}
+                            required
                             />
-                            Atak helikopteri
+                            undefined
                         </label>
 
                     </div>

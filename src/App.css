@@ -6,7 +6,7 @@
   transition: all 0.2s;
 }
 .eksi-search{border: 1px solid #81C14B;}
-.eksi-search-box{background-color:rgb(129, 193, 75); width: 33px; height: 28px; right: 5px;}
+.eksi-search-box{background-color:rgb(129, 193, 75);}
 
 .eksi-font{font-family: font-eksi;}
 
@@ -49,10 +49,33 @@
   .eksi-search{width: 140px}
 }
 
-input[type="radio"][value="erkek"]:checked {
-  background-color: blue;
+.eksi-logOut{box-shadow: inset 0px -5px 0px 0px rgb(255, 255, 255);color:rgb(73, 73, 73);}
+.eksi-logOut :hover {
+  box-shadow: inset 0px -5px 0px 0px rgb(255, 0, 0);
+  color: rgb(255, 0, 0);
+  transition: all 0.2s;
 }
 
-input[type="radio"]:checked + label span {
-  color: pink;
+/* Kaydırma çubuğunun rengini ve görünümünü özelleştirme (Webkit tarayıcıları için) */
+/* Kaydırma çubuğu arka plan rengi */
+::-webkit-scrollbar {
+  background-color: transparent; /* Değiştirmek istediğiniz arka plan rengi */
+  max-width: 25px;
+  min-width: 15px;
+}
+
+/* Kaydırma çubuğu çizgi rengi */
+::-webkit-scrollbar-thumb {
+  background-color: #81c14b; /* Değiştirmek istediğiniz kaydırma çubuğu rengi */
+}
+
+/* Kaydırma çubuğu etkili olduğunda boyutu ve şekli */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #b9ff7f; /* Kaydırma çubuğunun üzerine gelindiğinde rengi */
+}
+
+/* Kaydırma çubuğu boyutu */
+::-webkit-scrollbar-thumb {
+  border-radius: 12px; /* Kaydırma çubuğu köşe yarıçapı */
+  border: 5px solid #fff; /* Kaydırma çubuğu kenarlık rengi ve kalınlığı */
 }
